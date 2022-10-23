@@ -1,0 +1,138 @@
+@import './mixin' ;
+
+//var
+$colorMain: #141414;
+$colorMs: #fff;
+//
+header{
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    background-color: $colorMain;
+    position: relative;
+
+    .icon{
+        display: none;
+        color: $colorMs;
+        cursor: pointer;
+        width: 10%;
+        z-index: 100;
+        
+    
+
+        i{
+            font-size: 20px;
+        }
+    }
+
+    .logo{
+        width: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        i{
+            font-size: 30px;
+            color: $colorMs;
+        }
+    }
+    .nav-menu{
+        width: 50%;
+        transition: all 3s;
+        .navbar{
+            display: flex;
+            justify-content: space-evenly;
+
+            
+            a{
+                text-decoration: none;
+                color: $colorMs;
+                transition: .3s;
+                user-select: none;
+                padding: 6px;
+                border-radius: 6px;
+                font-weight: 400;
+                
+                &:last-child{
+                    border: 1px solid $colorMs;
+                }
+
+                &.active{
+                    background-color: $colorMs;
+                    color: $colorMain;
+                }
+
+                &:hover{
+                    background-color: $colorMs;
+                    color: $colorMain;
+                }
+            }
+        }
+
+    }    
+       
+}
+
+@include sm{
+    header{
+        .logo{
+            width: 20%;
+        }
+    }
+
+    header .nav-menu {
+        height: calc(100vh - 50px);
+        width: 100%;
+        position: absolute;
+        right: 0;
+        top: 50px;
+        transform: translateX(100%);
+        transition: .5s;
+        z-index: 300;
+        display: none;
+        
+
+        .navbar{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100%;
+            background-color: $colorMain;
+            padding-top: 50px;
+        
+    
+            a{
+                padding: 20px;
+                display: inline-block;
+                margin-bottom: 5px;
+                width: 80%;
+                text-align: center;
+                height: 10%;
+                color: $colorMs;
+                font-size: 20px;
+                transition: .8s;
+
+                &:hover{
+                    background-color: $colorMs;
+                    color: $colorMain;
+                }
+            }
+        }
+    }
+    header .icon{
+        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: .3s;
+
+    }
+    .nav-menu.active{
+        display: block;
+        transform: translateX(0);
+    }
+}
+
+
